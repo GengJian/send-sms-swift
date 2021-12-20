@@ -13,6 +13,8 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.showLog("👏 欢迎使用短信模版编辑 \n1.请先构造短信内容 \n2.请选择收信人列表 3.点击Send Message")
     }
 
     // MARK: - Action Method
@@ -55,7 +57,6 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     }
     
     
-    
     // MARK: - Private Method
     
     @IBOutlet weak var logTextView: UITextView!
@@ -71,9 +72,9 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
             currentText?.append("\n")
             
             self.logTextView.text = currentText
-            let range = currentText?.range(of: message)
-         
-            self.logTextView.scrollRangeToVisible(NSRange.)
+            
+            let nsrange = NSRange.init(location: currentText?.count ?? 1, length: 1)
+            self.logTextView.scrollRangeToVisible(nsrange)
         }
         
     }
