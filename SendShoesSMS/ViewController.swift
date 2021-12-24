@@ -16,6 +16,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
         // Do any additional setup after loading the view.
         
         // Delegate
+        self.shoesModelTypeTextField.delegate = self
         self.shoesSizeTextField.delegate = self
         
         // Welcome
@@ -73,7 +74,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         switch textField {
             
-        case self.shoesSizeTextField :
+        case self.shoesSizeTextField:
             let sizeVc = ChooseSizeController()
             sizeVc.delegate = self
             self.navigationController?.show(sizeVc, sender: nil)
@@ -82,6 +83,20 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
         default:
             return true
             
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let textStr = (textField.text ?? "") as String
+        switch textField {
+        case self.shoesModelTypeTextField:
+            if textStr.isEmpty == true {
+                showLog("鞋码填写不能为空")
+            } else {
+                showLog("鞋码填写完成:\(textStr)")
+            }
+        default :
+            break
         }
     }
     
