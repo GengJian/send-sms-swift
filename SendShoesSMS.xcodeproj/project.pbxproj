@@ -13,6 +13,8 @@
 		3F5E36BC276B03E400BD7A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5E36BA276B03E400BD7A8B /* Main.storyboard */; };
 		3F5E36BE276B03E600BD7A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F5E36BD276B03E600BD7A8B /* Assets.xcassets */; };
 		3F5E36C1276B03E600BD7A8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5E36BF276B03E600BD7A8B /* LaunchScreen.storyboard */; };
+		B1AFCFA72775A8D1005742F1 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1AFCFA62775A8D1005742F1 /* IQKeyboardManagerSwift */; };
+		B1AFCFA92775AD2B005742F1 /* ChooseSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		3F5E36BD276B03E600BD7A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F5E36C0276B03E600BD7A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F5E36C2276B03E600BD7A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSizeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AFCFA72775A8D1005742F1 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +63,7 @@
 				3F5E36B4276B03E400BD7A8B /* AppDelegate.swift */,
 				3F5E36B6276B03E400BD7A8B /* SceneDelegate.swift */,
 				3F5E36B8276B03E400BD7A8B /* ViewController.swift */,
+				B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */,
 				3F5E36BA276B03E400BD7A8B /* Main.storyboard */,
 				3F5E36BD276B03E600BD7A8B /* Assets.xcassets */,
 				3F5E36BF276B03E600BD7A8B /* LaunchScreen.storyboard */,
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = SendShoesSMS;
+			packageProductDependencies = (
+				B1AFCFA62775A8D1005742F1 /* IQKeyboardManagerSwift */,
+			);
 			productName = SendShoesSMS;
 			productReference = 3F5E36B1276B03E400BD7A8B /* SendShoesSMS.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = 3F5E36A8276B03E300BD7A8B;
+			packageReferences = (
+				B1AFCFA52775A8D1005742F1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 3F5E36B2276B03E400BD7A8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F5E36B9276B03E400BD7A8B /* ViewController.swift in Sources */,
+				B1AFCFA92775AD2B005742F1 /* ChooseSizeController.swift in Sources */,
 				3F5E36B5276B03E400BD7A8B /* AppDelegate.swift in Sources */,
 				3F5E36B7276B03E400BD7A8B /* SceneDelegate.swift in Sources */,
 			);
@@ -360,6 +372,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1AFCFA52775A8D1005742F1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1AFCFA62775A8D1005742F1 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1AFCFA52775A8D1005742F1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F5E36A9276B03E300BD7A8B /* Project object */;
 }
