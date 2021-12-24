@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainSMSController.swift
 //  SendShoesSMS
 //
 //  Created by Soul on 2021/12/16.
@@ -8,8 +8,9 @@
 import UIKit
 import MessageUI
 
-class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, UITextFieldDelegate,
-                      ChooseSizeControllerDelegate, ChooseUserControllerDelegate {
+class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegate,
+                         UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate,
+                         ChooseSizeControllerDelegate, ChooseUserControllerDelegate {
     
     // MARK: - Lifecycle Method
     override func viewDidLoad() {
@@ -20,6 +21,10 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
         self.shoesModelTypeTextField.delegate = self
         self.shoesSizeTextField.delegate = self
         self.userInfoTextField.delegate = self
+        // DataSource
+        self.sellerListView.dataSource = self
+        self.sellerListView.delegate = self
+        self.sellerListView.register(UITableViewCell.self, forCellReuseIdentifier: "sellerCell")
         
         // Welcome
         self.showLog("👏 欢迎使用短信模版编辑 \n1.请先构造短信内容 \n2.请选择收信人列表 \n3.点击Send Message")
@@ -72,7 +77,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
         
     }
     
-    // MARK: - Texefield Delegate Method
+    // MARK: - TextField Delegate Method
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         switch textField {
             
@@ -117,6 +122,45 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
     func didSelectedUser(_ vc: UIViewController, userInfo: String) {
         showLog("☑️ 已选中用户 \(userInfo)")
         self.userInfoTextField.text = userInfo
+    }
+    
+    // MARK: - UITableView DataSource / Delegate Method
+    @IBOutlet weak var sellerListView: UITableView!
+    var sellerDataSource = [
+        ["phone":"159 0186 6357", "isTick":true],
+        ["phone":"158 0067 0976", "isTick":true],
+        ["phone":"166 2315 3174", "isTick":true],
+        ["phone":"187 0176 0158", "isTick":false],
+        ["phone":"158 0067 0976", "isTick":false],
+        ["phone":"158 0172 3235", "isTick":false],
+        ["phone":"138 1728 8147", "isTick":false],
+    ]
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.sellerDataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sellerCell", for: indexPath)
+        cell.selectionStyle = .none
+        
+        let sellerDict = sellerDataSource[indexPath.row]
+        cell.textLabel?.text = sellerDict["phone"] as? String
+        let isTickoff = sellerDict["isTick"] as! Bool
+        cell.accessoryType = isTickoff ? .checkmark : .none
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
+    }
+    
+    /// 选择和取消选中收件人手机号
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let isTickoff = sellerDataSource[indexPath.row]["isTick"] as! Bool
+        sellerDataSource[indexPath.row]["isTick"] = !isTickoff
+        
+        tableView.reloadData()
     }
     
     // MARK: - Message Delegate Method

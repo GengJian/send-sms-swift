@@ -24,19 +24,19 @@
             </objects>
             <point key="canvasLocation" x="-700" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--MainSMS Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SendShoesSMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainSMSController" customModule="SendShoesSMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXM-Ug-60l" userLabel="Red">
-                                <rect key="frame" x="16" y="108" width="382" height="242"/>
+                                <rect key="frame" x="16" y="108" width="382" height="220.5"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="【Good Luck】" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dx2-Lo-psQ">
-                                        <rect key="frame" x="8" y="8" width="366" height="226"/>
+                                        <rect key="frame" x="8" y="8" width="366" height="204.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -52,10 +52,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWA-HY-40L" userLabel="Yellow">
-                                <rect key="frame" x="16" y="370" width="382" height="206"/>
+                                <rect key="frame" x="16" y="336.5" width="382" height="200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjW-al-VE4">
-                                        <rect key="frame" x="8" y="8" width="366" height="190"/>
+                                        <rect key="frame" x="8" y="8" width="366" height="184"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请填写鞋款型号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0U-AL-PA8">
                                                 <rect key="frame" x="8" y="15" width="122" height="21"/>
@@ -69,29 +69,29 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择尺码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qg-PS-HgX">
-                                                <rect key="frame" x="8" y="61" width="87" height="21"/>
+                                                <rect key="frame" x="8" y="56" width="87" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qs6-eN-ENA">
-                                                <rect key="frame" x="156.5" y="54.5" width="201.5" height="34"/>
+                                                <rect key="frame" x="156.5" y="49.5" width="201.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择抽签人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-88-DxA">
-                                                <rect key="frame" x="8" y="107" width="104" height="21"/>
+                                                <rect key="frame" x="8" y="97" width="104" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HDk-kj-ksn">
-                                                <rect key="frame" x="156.5" y="100.5" width="201.5" height="34"/>
+                                                <rect key="frame" x="156.5" y="90.5" width="201.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dl-df-obz">
-                                                <rect key="frame" x="8" y="142" width="350" height="40"/>
+                                                <rect key="frame" x="8" y="136" width="350" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="EF8-V3-pdh"/>
@@ -119,8 +119,8 @@
                                             <constraint firstItem="h0U-AL-PA8" firstAttribute="top" secondItem="rjW-al-VE4" secondAttribute="top" constant="15" id="fy4-tN-FsD"/>
                                             <constraint firstItem="qs6-eN-ENA" firstAttribute="trailing" secondItem="pHA-yv-wSI" secondAttribute="trailing" id="gGW-n1-hBZ"/>
                                             <constraint firstItem="2qg-PS-HgX" firstAttribute="leading" secondItem="h0U-AL-PA8" secondAttribute="leading" id="iAX-ZD-gg8"/>
-                                            <constraint firstItem="2qg-PS-HgX" firstAttribute="top" secondItem="h0U-AL-PA8" secondAttribute="bottom" constant="25" id="m36-8D-v1E"/>
-                                            <constraint firstItem="g6A-88-DxA" firstAttribute="top" secondItem="2qg-PS-HgX" secondAttribute="bottom" constant="25" id="mae-5P-ykg"/>
+                                            <constraint firstItem="2qg-PS-HgX" firstAttribute="top" secondItem="h0U-AL-PA8" secondAttribute="bottom" constant="20" id="m36-8D-v1E"/>
+                                            <constraint firstItem="g6A-88-DxA" firstAttribute="top" secondItem="2qg-PS-HgX" secondAttribute="bottom" constant="20" id="mae-5P-ykg"/>
                                             <constraint firstItem="qs6-eN-ENA" firstAttribute="centerY" secondItem="2qg-PS-HgX" secondAttribute="centerY" id="nSw-Sp-C1Z"/>
                                             <constraint firstItem="pHA-yv-wSI" firstAttribute="width" secondItem="rjW-al-VE4" secondAttribute="width" multiplier="0.55" id="nWp-Gf-8oW"/>
                                             <constraint firstAttribute="trailing" secondItem="pHA-yv-wSI" secondAttribute="trailing" constant="8" id="niz-j9-e1j"/>
@@ -131,17 +131,17 @@
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstItem="rjW-al-VE4" firstAttribute="leading" secondItem="kWA-HY-40L" secondAttribute="leading" constant="8" id="4I4-IA-Nqb"/>
-                                    <constraint firstAttribute="height" constant="206" id="5sr-mI-6SD"/>
+                                    <constraint firstAttribute="height" constant="200" id="5sr-mI-6SD"/>
                                     <constraint firstItem="rjW-al-VE4" firstAttribute="top" secondItem="kWA-HY-40L" secondAttribute="top" constant="8" id="860-by-04z"/>
                                     <constraint firstAttribute="trailing" secondItem="rjW-al-VE4" secondAttribute="trailing" constant="8" id="ksR-IB-xJS"/>
                                     <constraint firstAttribute="bottom" secondItem="rjW-al-VE4" secondAttribute="bottom" constant="8" id="qjY-7f-4iq"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gc-Vs-2uO" userLabel="Blue">
-                                <rect key="frame" x="16" y="600" width="382" height="242"/>
+                                <rect key="frame" x="16" y="544.5" width="382" height="297.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eU-le-Sna">
-                                        <rect key="frame" x="8" y="8" width="366" height="226"/>
+                                        <rect key="frame" x="8" y="8" width="366" height="281.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择Seller 手机号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1p7-Hj-1dk">
                                                 <rect key="frame" x="8" y="8" width="152" height="21"/>
@@ -150,11 +150,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5fs-Zz-iP7">
-                                                <rect key="frame" x="8" y="33" width="350" height="141"/>
+                                                <rect key="frame" x="8" y="33" width="350" height="196.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJQ-91-gY3">
-                                                <rect key="frame" x="8" y="178" width="350" height="40"/>
+                                                <rect key="frame" x="8" y="233.5" width="350" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="wG8-zH-ZHz"/>
@@ -198,12 +198,12 @@
                             <constraint firstItem="kWA-HY-40L" firstAttribute="trailing" secondItem="FXM-Ug-60l" secondAttribute="trailing" id="3ae-mH-ZA5"/>
                             <constraint firstItem="FXM-Ug-60l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4c0-xq-gzG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FXM-Ug-60l" secondAttribute="trailing" constant="16" id="8qp-B5-3RH"/>
-                            <constraint firstItem="kWA-HY-40L" firstAttribute="top" secondItem="FXM-Ug-60l" secondAttribute="bottom" constant="20" id="FAT-90-rmJ"/>
+                            <constraint firstItem="kWA-HY-40L" firstAttribute="top" secondItem="FXM-Ug-60l" secondAttribute="bottom" constant="8" id="FAT-90-rmJ"/>
                             <constraint firstItem="kWA-HY-40L" firstAttribute="leading" secondItem="FXM-Ug-60l" secondAttribute="leading" id="K3d-kx-Sjz"/>
                             <constraint firstItem="FXM-Ug-60l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Myy-gb-C5x"/>
                             <constraint firstItem="6gc-Vs-2uO" firstAttribute="leading" secondItem="FXM-Ug-60l" secondAttribute="leading" id="X9D-QQ-svF"/>
-                            <constraint firstItem="6gc-Vs-2uO" firstAttribute="height" secondItem="FXM-Ug-60l" secondAttribute="height" id="eim-SS-nv2"/>
-                            <constraint firstItem="6gc-Vs-2uO" firstAttribute="top" secondItem="kWA-HY-40L" secondAttribute="bottom" constant="24" id="gSG-A5-Jw1"/>
+                            <constraint firstItem="6gc-Vs-2uO" firstAttribute="height" secondItem="FXM-Ug-60l" secondAttribute="height" multiplier="1.35" id="eim-SS-nv2"/>
+                            <constraint firstItem="6gc-Vs-2uO" firstAttribute="top" secondItem="kWA-HY-40L" secondAttribute="bottom" constant="8" id="gSG-A5-Jw1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6gc-Vs-2uO" secondAttribute="bottom" constant="20" id="sa6-i2-kBM"/>
                             <constraint firstItem="6gc-Vs-2uO" firstAttribute="trailing" secondItem="FXM-Ug-60l" secondAttribute="trailing" id="zHD-Qp-YvV"/>
                         </constraints>
@@ -211,6 +211,7 @@
                     <navigationItem key="navigationItem" id="p51-01-M4C"/>
                     <connections>
                         <outlet property="logTextView" destination="dx2-Lo-psQ" id="rrW-Yl-O3O"/>
+                        <outlet property="sellerListView" destination="5fs-Zz-iP7" id="b5B-KJ-wJt"/>
                         <outlet property="shoesModelTypeTextField" destination="pHA-yv-wSI" id="3bU-vf-bZE"/>
                         <outlet property="shoesSizeTextField" destination="qs6-eN-ENA" id="Sn0-8h-9cK"/>
                         <outlet property="userInfoTextField" destination="HDk-kj-ksn" id="FC4-o5-dno"/>
