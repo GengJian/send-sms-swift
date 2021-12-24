@@ -31,12 +31,25 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
         // Welcome
         self.showLog("👏 欢迎使用短信模版编辑 \n1.请先构造短信内容 \n2.请选择收信人列表 \n3.点击Send Message")
         
-        // AutoFill
+        // AutoFill By Cache
         self.userInfoTextField.text = UserDefaults.standard.string(forKey: CACHE_USER_INFO)
-        
-        let pastrdStr = UIPasteboard.general.string
-        showLog("😊 发现剪贴板内容:） \n\(pastrdStr)")
-        self.shoesModelTypeTextField.text = pastrdStr
+        // Check PasteBoard
+        if let pastrdStr = UIPasteboard.general.string {
+            let alert = UIAlertController.init(title: "是否自动填写至鞋号",
+                                               message: "发现剪贴板内容\n[\(pastrdStr)]",
+                                               preferredStyle: .alert)
+            let confirmAction = UIAlertAction.init(title: "Sure", style: .default) { Action in
+                self.shoesModelTypeTextField.text = pastrdStr
+            }
+            let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(confirmAction)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true) {
+                self.showLog("😊 发现剪贴板内容:） \n\(pastrdStr)")
+            }
+        }
+    
     }
     
     @IBOutlet weak var shoesModelTypeTextField: UITextField!
