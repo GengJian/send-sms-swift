@@ -14,7 +14,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.showLog("👏 欢迎使用短信模版编辑 \n1.请先构造短信内容 \n2.请选择收信人列表 3.点击Send Message")
+        self.showLog("👏 欢迎使用短信模版编辑 \n1.请先构造短信内容 \n2.请选择收信人列表 \n3.点击Send Message")
     }
 
     // MARK: - Action Method
