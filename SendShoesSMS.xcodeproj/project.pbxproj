@@ -16,6 +16,7 @@
 		B1AFCFA72775A8D1005742F1 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1AFCFA62775A8D1005742F1 /* IQKeyboardManagerSwift */; };
 		B1AFCFA92775AD2B005742F1 /* ChooseSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */; };
 		B1AFCFAF2775BD51005742F1 /* ChooseUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCFAE2775BD51005742F1 /* ChooseUserController.swift */; };
+		B1AFD02D2775C575005742F1 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1AFD02B2775C575005742F1 /* UserModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		3F5E36C2276B03E600BD7A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSizeController.swift; sourceTree = "<group>"; };
 		B1AFCFAE2775BD51005742F1 /* ChooseUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseUserController.swift; sourceTree = "<group>"; };
+		B1AFD02C2775C575005742F1 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				3F5E36B8276B03E400BD7A8B /* ViewController.swift */,
 				B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */,
 				B1AFCFAE2775BD51005742F1 /* ChooseUserController.swift */,
+				B1AFD02B2775C575005742F1 /* UserModel.xcdatamodeld */,
 				3F5E36BA276B03E400BD7A8B /* Main.storyboard */,
 				3F5E36BD276B03E600BD7A8B /* Assets.xcassets */,
 				3F5E36BF276B03E600BD7A8B /* LaunchScreen.storyboard */,
@@ -154,6 +157,7 @@
 			files = (
 				3F5E36B9276B03E400BD7A8B /* ViewController.swift in Sources */,
 				B1AFCFA92775AD2B005742F1 /* ChooseSizeController.swift in Sources */,
+				B1AFD02D2775C575005742F1 /* UserModel.xcdatamodeld in Sources */,
 				B1AFCFAF2775BD51005742F1 /* ChooseUserController.swift in Sources */,
 				3F5E36B5276B03E400BD7A8B /* AppDelegate.swift in Sources */,
 				3F5E36B7276B03E400BD7A8B /* SceneDelegate.swift in Sources */,
@@ -395,6 +399,19 @@
 			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B1AFD02B2775C575005742F1 /* UserModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B1AFD02C2775C575005742F1 /* UserModel.xcdatamodel */,
+			);
+			currentVersion = B1AFD02C2775C575005742F1 /* UserModel.xcdatamodel */;
+			path = UserModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F5E36A9276B03E300BD7A8B /* Project object */;
 }
