@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // MARK: - Core Data Stack
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "UserModel")
+        let container = NSPersistentContainer(name: "CoreData")
         container.loadPersistentStores { storeDesc, error in
             if let nserror = error as NSError? {
                 fatalError("CoreData Unresolved error \(nserror), \(nserror.userInfo)")

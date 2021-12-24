@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol ChooseUserControllerDelegate {
     func didSelectedUser(_ vc: UIViewController, userInfo: String)
@@ -23,6 +24,13 @@ class ChooseUserController: UIViewController, UITableViewDataSource , UITableVie
         self.view.addSubview(self.userListView)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.userDataArray = checkAllUsers().sorted { user1, user2 in
+            user2.id > user1.id  //按照身份证排序
+        }
+        self.userListView.reloadData()
+    }
+    
 
     // MARK: - UI Method
     fileprivate var _addItem : UIBarButtonItem?
@@ -38,7 +46,13 @@ class ChooseUserController: UIViewController, UITableViewDataSource , UITableVie
     @objc func addButtonClicked() {
         debugPrint(#function)
         
+        let bundle = Bundle(for: Self.self)
+        let sb = UIStoryboard.init(name: "Main", bundle: bundle)
+        let identifier = "AddUserController"
+        let vc = sb.instantiateViewController(withIdentifier: identifier)
         
+        self.navigationController?.show(vc, sender: nil)
+     
     }
     
     fileprivate var _userListView : UITableView?
@@ -48,42 +62,63 @@ class ChooseUserController: UIViewController, UITableViewDataSource , UITableVie
             _userListView?.backgroundColor = .cyan
             _userListView?.dataSource = self
             _userListView?.delegate = self
-            _userListView?.register(UITableViewCell.self, forCellReuseIdentifier: "sizeCell")
+            
+            let nib = UINib.init(nibName: "UserListTableViewCell", bundle: .main)
+            _userListView?.register(nib, forCellReuseIdentifier: "sizeCell")
         }
         return _userListView!
     }()
     
     
     // MARK: - UITableView DataSource/Delegate
-    let sizeDataArray = [
-        "36","37","38","39","40","41","42","43","44","45",
-        "36.5","37.5","38.5","39.5","40.5","41.5","42.5","43.5","44.5","45.5"
-    ].sorted { str1, str2 in
-        let f1 = Float(str1)!
-        let f2 = Float(str2)!
-        return f1 < f2
-    }
+    var userDataArray = Array<UserModel>.init()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sizeDataArray.count
+        return userDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sizeCell", for: indexPath)
-        let num = sizeDataArray[indexPath.row]
-        cell.textLabel?.text = "\(num)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sizeCell", for: indexPath) as! UserListTableViewCell
+        let user = userDataArray[indexPath.row]
+       
+        cell.setModel(user)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = sizeDataArray[indexPath.row]
+        let user = userDataArray[indexPath.row]
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
         }
         if let delegate = delegate {
-            delegate.didSelectedUser(self, userInfo: user)
+            let firstName = user.firstName ?? "FirstName"
+            let lastName = user.lastName ?? "LastName"
+            let firstId = user.firstId ?? "FirstId"
+            let lastId = user.lastId ?? "LastId"
+            
+            let userInfo = firstName + " " + lastName + "+" + firstId + lastId
+            delegate.didSelectedUser(self, userInfo: userInfo)
         }
     }
 
+    /// 从CoreData中查询所有的用户
+    func checkAllUsers() -> Array<UserModel> {
+        // Fetching models from CoreData
+        var users : Array<UserModel> = []
+        do {
+            let robotsRequest: NSFetchRequest<UserModel> = UserModel.fetchRequest()
+            let sort = NSSortDescriptor(key: "id", ascending: true)
+            robotsRequest.sortDescriptors = [sort]
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            users = try context.fetch(robotsRequest)
+                print(users)
+                        } catch {
+                            print("Failed fetching")
+                        }
+        return users
+    }
 }

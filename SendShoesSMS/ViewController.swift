@@ -101,7 +101,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
             if textStr.isEmpty == true {
                 showLog("🙅 鞋码填写不能为空")
             } else {
-                showLog("鞋码填写完成:\(textStr)")
+                showLog("☑️ 已填写鞋号:\(textStr)")
             }
         default :
             break

@@ -16,7 +16,10 @@
 		B1AFCFA72775A8D1005742F1 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1AFCFA62775A8D1005742F1 /* IQKeyboardManagerSwift */; };
 		B1AFCFA92775AD2B005742F1 /* ChooseSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */; };
 		B1AFCFAF2775BD51005742F1 /* ChooseUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCFAE2775BD51005742F1 /* ChooseUserController.swift */; };
-		B1AFD02D2775C575005742F1 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1AFD02B2775C575005742F1 /* UserModel.xcdatamodeld */; };
+		B1AFD02D2775C575005742F1 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1AFD02B2775C575005742F1 /* CoreData.xcdatamodeld */; };
+		B1AFD03227760D08005742F1 /* AddUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFD03027760D08005742F1 /* AddUserController.swift */; };
+		B1AFD03827761CC1005742F1 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFD03627761CC1005742F1 /* UserListTableViewCell.swift */; };
+		B1AFD03927761CC1005742F1 /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1AFD03727761CC1005742F1 /* UserListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSizeController.swift; sourceTree = "<group>"; };
 		B1AFCFAE2775BD51005742F1 /* ChooseUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseUserController.swift; sourceTree = "<group>"; };
 		B1AFD02C2775C575005742F1 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
+		B1AFD03027760D08005742F1 /* AddUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserController.swift; sourceTree = "<group>"; };
+		B1AFD03627761CC1005742F1 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		B1AFD03727761CC1005742F1 /* UserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +75,10 @@
 				3F5E36B8276B03E400BD7A8B /* ViewController.swift */,
 				B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */,
 				B1AFCFAE2775BD51005742F1 /* ChooseUserController.swift */,
-				B1AFD02B2775C575005742F1 /* UserModel.xcdatamodeld */,
+				B1AFD03027760D08005742F1 /* AddUserController.swift */,
+				B1AFD03627761CC1005742F1 /* UserListTableViewCell.swift */,
+				B1AFD03727761CC1005742F1 /* UserListTableViewCell.xib */,
+				B1AFD02B2775C575005742F1 /* CoreData.xcdatamodeld */,
 				3F5E36BA276B03E400BD7A8B /* Main.storyboard */,
 				3F5E36BD276B03E600BD7A8B /* Assets.xcassets */,
 				3F5E36BF276B03E600BD7A8B /* LaunchScreen.storyboard */,
@@ -142,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AFD03927761CC1005742F1 /* UserListTableViewCell.xib in Resources */,
 				3F5E36C1276B03E600BD7A8B /* LaunchScreen.storyboard in Resources */,
 				3F5E36BE276B03E600BD7A8B /* Assets.xcassets in Resources */,
 				3F5E36BC276B03E400BD7A8B /* Main.storyboard in Resources */,
@@ -157,7 +167,9 @@
 			files = (
 				3F5E36B9276B03E400BD7A8B /* ViewController.swift in Sources */,
 				B1AFCFA92775AD2B005742F1 /* ChooseSizeController.swift in Sources */,
-				B1AFD02D2775C575005742F1 /* UserModel.xcdatamodeld in Sources */,
+				B1AFD03227760D08005742F1 /* AddUserController.swift in Sources */,
+				B1AFD02D2775C575005742F1 /* CoreData.xcdatamodeld in Sources */,
+				B1AFD03827761CC1005742F1 /* UserListTableViewCell.swift in Sources */,
 				B1AFCFAF2775BD51005742F1 /* ChooseUserController.swift in Sources */,
 				3F5E36B5276B03E400BD7A8B /* AppDelegate.swift in Sources */,
 				3F5E36B7276B03E400BD7A8B /* SceneDelegate.swift in Sources */,
@@ -401,13 +413,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		B1AFD02B2775C575005742F1 /* UserModel.xcdatamodeld */ = {
+		B1AFD02B2775C575005742F1 /* CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				B1AFD02C2775C575005742F1 /* UserModel.xcdatamodel */,
 			);
 			currentVersion = B1AFD02C2775C575005742F1 /* UserModel.xcdatamodel */;
-			path = UserModel.xcdatamodeld;
+			path = CoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
