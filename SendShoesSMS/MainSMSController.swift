@@ -68,11 +68,19 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
     /// 唤起发送短信界面
     @IBAction func sendMessageAction(_ sender: Any) {
         if MFMessageComposeViewController.canSendText() {
-            let vc = MFMessageComposeViewController()
-            vc.recipients = ["10086"] // 支持多个手机号
-            vc.body = "今天晚上有空么,一起肯德基疯狂星期四" // 支持文字直接进入文本框
-            vc.messageComposeDelegate = self
-            self.present(vc, animated: true, completion: nil)
+            
+            for dict in self.sellerDataSource {
+                let phone = dict["phone"] as! String
+                let isTick = dict["isTick"] as! Bool
+                
+                if isTick {
+                    let vc = MFMessageComposeViewController()
+                    vc.recipients = [phone] // 支持多个手机号
+                    vc.body = self.messageBody // 支持文字直接进入文本框
+                    vc.messageComposeDelegate = self
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
         }
         
     }
