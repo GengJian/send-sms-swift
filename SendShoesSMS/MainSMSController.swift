@@ -41,21 +41,21 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
     @IBAction func buildMessageBodyAction(_ sender: Any) {
         messageBody = ""
         
-        if let shoeModel = shoesModelTypeTextField.text {
+        if let shoeModel = shoesModelTypeTextField.text, shoeModel.count > 4 {
             messageBody?.append("\(shoeModel)+")
         } else {
             showLog("🙅‍♂️ 鞋子型号填写为空")
             return
         }
         
-        if let userInfo = userInfoTextField.text {
+        if let userInfo = userInfoTextField.text, userInfo.count > 4 {
             messageBody?.append(userInfo)
         } else {
             showLog("🙅‍♂️ 抽签人信息填写为空")
             return
         }
      
-        if let shoesSize = shoesSizeTextField.text {
+        if let shoesSize = shoesSizeTextField.text, shoesSize.count >= 2 {
             messageBody?.append("+\(shoesSize)")
         } else {
             showLog("🙅‍♂️ 鞋码信息填写为空")
@@ -201,7 +201,7 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
             
             self.logTextView.text = currentText
             
-            let nsrange = NSRange.init(location: currentText?.count ?? 1, length: 1)
+            let nsrange = NSRange.init(location: currentText?.count ?? 1 - 10, length: 10)
             self.logTextView.scrollRangeToVisible(nsrange)
         }
         
