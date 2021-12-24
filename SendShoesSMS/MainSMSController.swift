@@ -8,6 +8,8 @@
 import UIKit
 import MessageUI
 
+let CACHE_USER_INFO = "cacheUserInfoName"
+
 class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegate,
                          UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate,
                          ChooseSizeControllerDelegate, ChooseUserControllerDelegate {
@@ -28,6 +30,10 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
         
         // Welcome
         self.showLog("👏 欢迎使用短信模版编辑 \n1.请先构造短信内容 \n2.请选择收信人列表 \n3.点击Send Message")
+        
+        // AutoFill
+        self.userInfoTextField.text = UserDefaults.standard.string(forKey: CACHE_USER_INFO)
+        
     }
     
     @IBOutlet weak var shoesModelTypeTextField: UITextField!
@@ -50,6 +56,7 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
         
         if let userInfo = userInfoTextField.text, userInfo.count > 4 {
             messageBody?.append(userInfo)
+            UserDefaults.standard.set(userInfo, forKey: CACHE_USER_INFO)
         } else {
             showLog("🙅‍♂️ 抽签人信息填写为空")
             return
