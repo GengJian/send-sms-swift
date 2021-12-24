@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ChooseSizeControllerDelegate {
-    func didSelectedSize(_ controller: UIViewController, size: String)
+    func didSelectedSize(_ vc: UIViewController, size: String)
 }
 
 class ChooseSizeController: UIViewController, UITableViewDataSource, UITableViewDelegate {

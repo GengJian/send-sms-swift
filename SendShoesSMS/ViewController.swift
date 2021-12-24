@@ -8,16 +8,18 @@
 import UIKit
 import MessageUI
 
-class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, UITextFieldDelegate, ChooseSizeControllerDelegate {
-
+class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, UITextFieldDelegate,
+                      ChooseSizeControllerDelegate, ChooseUserControllerDelegate {
+    
     // MARK: - Lifecycle Method
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        self.title = "🧨 好运来 🧨"
         // Delegate
         self.shoesModelTypeTextField.delegate = self
         self.shoesSizeTextField.delegate = self
+        self.userInfoTextField.delegate = self
         
         // Welcome
         self.showLog("👏 欢迎使用短信模版编辑 \n1.请先构造短信内容 \n2.请选择收信人列表 \n3.点击Send Message")
@@ -80,6 +82,12 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
             self.navigationController?.show(sizeVc, sender: nil)
             return false
             
+        case self.userInfoTextField:
+            let userVc = ChooseUserController()
+            userVc.delegate = self
+            self.navigationController?.show(userVc, sender: nil)
+            return false
+            
         default:
             return true
             
@@ -91,7 +99,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
         switch textField {
         case self.shoesModelTypeTextField:
             if textStr.isEmpty == true {
-                showLog("鞋码填写不能为空")
+                showLog("🙅 鞋码填写不能为空")
             } else {
                 showLog("鞋码填写完成:\(textStr)")
             }
@@ -100,12 +108,16 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
         }
     }
     
-    // MARK: - Choose Size Delegate
+    // MARK: - Choose Controller Callback Delegate
     func didSelectedSize(_ vc: UIViewController, size: String) {
-        showLog("已选中尺码 \(size)")
+        showLog("☑️ 已选中尺码 \(size)")
         self.shoesSizeTextField.text = size
     }
     
+    func didSelectedUser(_ vc: UIViewController, userInfo: String) {
+        showLog("☑️ 已选中用户 \(userInfo)")
+        self.userInfoTextField.text = userInfo
+    }
     
     // MARK: - Message Delegate Method
     func messageComposeViewController(_ controller: MFMessageComposeViewController,
