@@ -34,6 +34,9 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
         // AutoFill
         self.userInfoTextField.text = UserDefaults.standard.string(forKey: CACHE_USER_INFO)
         
+        let pastrdStr = UIPasteboard.general.string
+        showLog("😊 发现剪贴板内容:） \n\(pastrdStr)")
+        self.shoesModelTypeTextField.text = pastrdStr
     }
     
     @IBOutlet weak var shoesModelTypeTextField: UITextField!
@@ -81,6 +84,7 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
                 let isTick = dict["isTick"] as! Bool
                 
                 if isTick {
+                    self.showLog("准备发送给\(phone)信息...")
                     let vc = MFMessageComposeViewController()
                     vc.recipients = [phone] // 支持多个手机号
                     vc.body = self.messageBody // 支持文字直接进入文本框
@@ -195,7 +199,7 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
         }
         
         controller.dismiss(animated: true) {
-            self.showLog("【发送状态】 \(res) ")
+            self.showLog("【发送状态】\(controller.recipients?[0]).. \(res) ")
         }
     }
     
