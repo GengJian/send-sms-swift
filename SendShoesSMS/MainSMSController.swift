@@ -14,6 +14,9 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
                          UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate,
                          ChooseSizeControllerDelegate, ChooseUserControllerDelegate {
     
+    // MARK: - Bind ViewModel
+    let viewModel = MainSMSViewModel()
+    
     // MARK: - Lifecycle Method
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,12 +96,7 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
     /// 唤起发送短信界面
     @IBAction func sendMessageAction(_ sender: Any) {
         if MFMessageComposeViewController.canSendText() {
-            
-            for var dict in self.sellerDataSource {
-                let phone = dict["phone"] as! String
-                let isTick = dict["isTick"] as! Bool
-                
-                if isTick {
+            for phone in self.viewModel.receiverList {
                     self.showLog("准备发送给\(phone)信息...")
                     let vc = MFMessageComposeViewController()
                     vc.recipients = [phone] // 支持多个手机号
@@ -106,9 +104,8 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
                     vc.messageComposeDelegate = self
                     self.present(vc, animated: true) {
                         // 成功展示出message页面后即取消当前的勾选状态
-                        dict["isTick"] = false
+                       _ = self.viewModel.deleteReciver(phone: phone)
                     }
-                }
             }
         }
         
@@ -163,27 +160,19 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
     
     // MARK: - UITableView DataSource / Delegate Method
     @IBOutlet weak var sellerListView: UITableView!
-    var sellerDataSource = [
-        ["phone":"159 0186 6357", "isTick":true],
-        ["phone":"158 0067 0976", "isTick":true],
-        ["phone":"166 2315 3174", "isTick":true],
-        ["phone":"187 0176 0158", "isTick":false],
-        ["phone":"158 0067 0976", "isTick":false],
-        ["phone":"158 0172 3235", "isTick":false],
-        ["phone":"138 1728 8147", "isTick":false],
-    ]
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.sellerDataSource.count
+        self.viewModel.allSellerList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sellerCell", for: indexPath)
         cell.selectionStyle = .none
         
-        let sellerDict = sellerDataSource[indexPath.row]
-        cell.textLabel?.text = sellerDict["phone"] as? String
-        let isTickoff = sellerDict["isTick"] as! Bool
-        cell.accessoryType = isTickoff ? .checkmark : .none
+        let phoneNumber = self.viewModel.allSellerList[indexPath.row] as String
+        cell.textLabel?.text = phoneNumber
+        let isTickOff = self.viewModel.shouldBeTickOff(phone: phoneNumber)
+        cell.accessoryType = isTickOff ? .checkmark : .none
         
         return cell
     }
@@ -194,8 +183,13 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
     
     /// 选择和取消选中收件人手机号
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let isTickoff = sellerDataSource[indexPath.row]["isTick"] as! Bool
-        sellerDataSource[indexPath.row]["isTick"] = !isTickoff
+       
+        let phone = self.viewModel.allSellerList[indexPath.row]
+        if (self.viewModel.shouldBeTickOff(phone: phone)) {
+           _ = self.viewModel.deleteReciver(phone: phone)
+        } else {
+            _ = self.viewModel.addReciver(phone: phone)
+        }
         
         tableView.reloadData()
     }
@@ -219,7 +213,7 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
         controller.dismiss(animated: true) {
             self.showLog("【发送状态】\(String(describing: controller.recipients?[0])).. \(res) ")
             // 因为单条发送，所以更改勾选状态后轮询触发下一条
-            self.sendMessageAction(self.sendMessageButton)
+            self.sendMessageAction(self.sendMessageButton as Any)
         }
     }
     
@@ -243,9 +237,7 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
             let nsrange = NSRange.init(location: currentText?.count ?? 1 - 10, length: 10)
             self.logTextView.scrollRangeToVisible(nsrange)
         }
-        
     }
-    
     
 }
 
