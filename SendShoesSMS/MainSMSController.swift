@@ -104,8 +104,8 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
                     vc.messageComposeDelegate = self
                     self.present(vc, animated: true) {
                         // 成功展示出message页面后即取消当前的勾选状态
-                       _ = self.viewModel.deleteReciver(phone: phone)
-                            self.sellerListView.reloadData()
+                        _ = self.viewModel.deleteReciver(phone: phone)
+                        self.sellerListView.reloadData()
                     }
             }
         }
@@ -214,7 +214,15 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
         controller.dismiss(animated: true) {
             self.showLog("【发送状态】\(String(describing: controller.recipients?[0])).. \(res) ")
             // 因为单条发送，所以更改勾选状态后轮询触发下一条
-            self.sendMessageAction(self.sendMessageButton as Any)
+            if (self.viewModel.receiverList.isEmpty) {
+                self.showLog("✨ 所有收件人都已发送完毕..跳往message.app查看")
+//                UIApplication.shared.open(URL.init(string: "sms://")!,
+//                                          options: [:],
+//                                          completionHandler: nil)
+           
+            } else {
+                self.sendMessageAction(self.sendMessageButton as Any)
+            }
         }
     }
     
