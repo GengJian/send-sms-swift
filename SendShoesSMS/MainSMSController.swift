@@ -88,11 +88,13 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
         showLog("👏 生成短信模版如下\n\(String(describing: messageBody))\n")
     }
     
+    
+    @IBOutlet weak var sendMessageButton: UIButton!
     /// 唤起发送短信界面
     @IBAction func sendMessageAction(_ sender: Any) {
         if MFMessageComposeViewController.canSendText() {
             
-            for dict in self.sellerDataSource {
+            for var dict in self.sellerDataSource {
                 let phone = dict["phone"] as! String
                 let isTick = dict["isTick"] as! Bool
                 
@@ -102,7 +104,10 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
                     vc.recipients = [phone] // 支持多个手机号
                     vc.body = self.messageBody // 支持文字直接进入文本框
                     vc.messageComposeDelegate = self
-                    self.present(vc, animated: true, completion: nil)
+                    self.present(vc, animated: true) {
+                        // 成功展示出message页面后即取消当前的勾选状态
+                        dict["isTick"] = false
+                    }
                 }
             }
         }
@@ -212,7 +217,9 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
         }
         
         controller.dismiss(animated: true) {
-            self.showLog("【发送状态】\(controller.recipients?[0]).. \(res) ")
+            self.showLog("【发送状态】\(String(describing: controller.recipients?[0])).. \(res) ")
+            // 因为单条发送，所以更改勾选状态后轮询触发下一条
+            self.sendMessageAction(self.sendMessageButton)
         }
     }
     

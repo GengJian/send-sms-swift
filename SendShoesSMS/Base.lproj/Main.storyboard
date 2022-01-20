@@ -212,6 +212,7 @@
                     <connections>
                         <outlet property="logTextView" destination="dx2-Lo-psQ" id="rrW-Yl-O3O"/>
                         <outlet property="sellerListView" destination="5fs-Zz-iP7" id="b5B-KJ-wJt"/>
+                        <outlet property="sendMessageButton" destination="sJQ-91-gY3" id="FSM-EP-KvY"/>
                         <outlet property="shoesModelTypeTextField" destination="pHA-yv-wSI" id="3bU-vf-bZE"/>
                         <outlet property="shoesSizeTextField" destination="qs6-eN-ENA" id="Sn0-8h-9cK"/>
                         <outlet property="userInfoTextField" destination="HDk-kj-ksn" id="FC4-o5-dno"/>
@@ -224,7 +225,6 @@
         <!--Add User Controller-->
         <scene sceneID="XSU-TJ-eAk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="waf-8a-MJl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="AddUserController" id="Fhh-fE-IR2" customClass="AddUserController" customModule="SendShoesSMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WjZ-uP-k0L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -323,6 +323,7 @@
                         <outlet property="lastNameTextField" destination="9vM-p7-Ve8" id="igU-O5-aQt"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="waf-8a-MJl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="995.65217391304361" y="124.55357142857142"/>
         </scene>
