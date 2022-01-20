@@ -105,9 +105,7 @@ class MainSMSController: UIViewController, MFMessageComposeViewControllerDelegat
                     self.present(vc, animated: true) {
                         // 成功展示出message页面后即取消当前的勾选状态
                        _ = self.viewModel.deleteReciver(phone: phone)
-                        DispatchQueue.main.sync {
                             self.sellerListView.reloadData()
-                        }
                     }
             }
         }
