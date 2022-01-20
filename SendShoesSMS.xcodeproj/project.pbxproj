@@ -14,7 +14,6 @@
 		3F5E36BE276B03E600BD7A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F5E36BD276B03E600BD7A8B /* Assets.xcassets */; };
 		3F5E36C1276B03E600BD7A8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5E36BF276B03E600BD7A8B /* LaunchScreen.storyboard */; };
 		B1183ACF27995BCB00E16D0A /* MainSMSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1183ACE27995BCB00E16D0A /* MainSMSViewModel.swift */; };
-		B1183AD127995C6200E16D0A /* SellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1183AD027995C6200E16D0A /* SellerModel.swift */; };
 		B1AFCFA72775A8D1005742F1 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1AFCFA62775A8D1005742F1 /* IQKeyboardManagerSwift */; };
 		B1AFCFA92775AD2B005742F1 /* ChooseSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */; };
 		B1AFCFAF2775BD51005742F1 /* ChooseUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCFAE2775BD51005742F1 /* ChooseUserController.swift */; };
@@ -34,7 +33,6 @@
 		3F5E36C0276B03E600BD7A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F5E36C2276B03E600BD7A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1183ACE27995BCB00E16D0A /* MainSMSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSMSViewModel.swift; sourceTree = "<group>"; };
-		B1183AD027995C6200E16D0A /* SellerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerModel.swift; sourceTree = "<group>"; };
 		B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSizeController.swift; sourceTree = "<group>"; };
 		B1AFCFAE2775BD51005742F1 /* ChooseUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseUserController.swift; sourceTree = "<group>"; };
 		B1AFD02C2775C575005742F1 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 				3F5E36B6276B03E400BD7A8B /* SceneDelegate.swift */,
 				3F5E36B8276B03E400BD7A8B /* MainSMSController.swift */,
 				B1183ACE27995BCB00E16D0A /* MainSMSViewModel.swift */,
-				B1183AD027995C6200E16D0A /* SellerModel.swift */,
 				B1AFCFA82775AD2B005742F1 /* ChooseSizeController.swift */,
 				B1AFCFAE2775BD51005742F1 /* ChooseUserController.swift */,
 				B1AFD03027760D08005742F1 /* AddUserController.swift */,
@@ -179,7 +176,6 @@
 				B1AFD03827761CC1005742F1 /* UserListTableViewCell.swift in Sources */,
 				B1AFCFAF2775BD51005742F1 /* ChooseUserController.swift in Sources */,
 				3F5E36B5276B03E400BD7A8B /* AppDelegate.swift in Sources */,
-				B1183AD127995C6200E16D0A /* SellerModel.swift in Sources */,
 				3F5E36B7276B03E400BD7A8B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
