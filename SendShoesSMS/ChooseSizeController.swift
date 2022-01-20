@@ -39,7 +39,7 @@ class ChooseSizeController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - UITableView DataSource/Delegate
     let sizeDataArray = [
-        "36","37","38","39","40","41","42","43","44","45",
+        "36.0","37.0","38.0","39.0","40.0","41.0","42.0","43.0","44.0","45.0",
         "36.5","37.5","38.5","39.5","40.5","41.5","42.5","43.5","44.5","45.5"
     ].sorted { str1, str2 in
         let f1 = Float(str1)!
