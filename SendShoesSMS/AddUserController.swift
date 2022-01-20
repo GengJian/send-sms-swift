@@ -8,13 +8,19 @@
 import UIKit
 import CoreData
 
-class AddUserController: UIViewController {
+class AddUserController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.title = "Add New User"
+        
+        // 设置TextField Delegate
+        self.firstNameTextField.delegate = self
+        self.lastIdTextField.delegate = self
+        self.firstIdTextField.delegate = self
+        self.lastIdTextField.delegate = self
     }
 
 
@@ -79,5 +85,21 @@ class AddUserController: UIViewController {
         return count
     }
     
-    
+    // MARK: - TextField Delegate
+    // 格式化输入框
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        // 去除空格
+        let characterSet = CharacterSet.init(charactersIn: " ")
+        textField.text = textField.text?.trimmingCharacters(in: characterSet)
+        
+        // 限制输入长度
+        if (self.firstIdTextField  == textField) {
+            return (textField.text?.count ?? 0 + string.count) <= 4
+        } else if (self.lastIdTextField  == textField) {
+            return (textField.text?.count ?? 0 + string.count) <= 4
+        }
+        
+        return true
+    }
 }
